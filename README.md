@@ -4,9 +4,9 @@
 Student: tfuentebuena@est.frba.utn.edu.ar
 Personal: tobiasfuentebuenaguardon@gmail.com
 
-Simple console-based contact book which works with CSV files.
-SQLite may be added in the future.
-The script dumps in a CSV name, address, phone number and e-mail of every person you want. You can also update or delete any row.
+Simple console-based contact book which works with CSV files.  
+SQLite may be added in the future.  
+The script dumps in a CSV name, address, phone number and e-mail of every person you want. You can also update or delete any row.  
 Search is supported even in another files if you rename them as 'contacts.csv' and they have the same format (name-address-phone-email). 
 
 I DO NOT RECOMMEND USING IT AS IT IS NOW but if you still want to try it, consider the next points:
