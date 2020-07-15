@@ -1,7 +1,7 @@
 # ConsoleContactBook
 ### Tobias Fuentebuena Guardon - Engineering Student at UTN-FRBA 2020
-####Contact:
-Student: tfuentebuena@est.frba.utn.edu.ar
+#### Contact:
+Student: tfuentebuena@est.frba.utn.edu.ar  
 Personal: tobiasfuentebuenaguardon@gmail.com
 
 Simple console-based contact book which works with CSV files.  
