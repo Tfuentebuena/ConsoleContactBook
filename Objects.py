@@ -1,5 +1,17 @@
 import csv
+import operator
 import os.path
+
+def order_data(filename="contacts.csv"):
+    file = str(filename)
+
+    with open(file, "r") as data:
+        reader = csv.reader(data, delimiter=",")
+        sorted_data=sorted(reader, key=operator.itemgetter(0))
+    with open(file, "w") as data:
+        writer = csv.writer(data, delimiter=",")
+        for line in sorted_data:
+            writer.writerow(line)
 
 
 class ContactBook:
@@ -14,12 +26,14 @@ class ContactBook:
                 writer.writeheader()
 
     def add_contact(self, filename):
+
         data = ["Name", "Address", "Phone", "Email"]
         data_list = [None, None, None, None]
         for i in range(4):
             data_list[i] = input("Enter the {}: ".format(data[i]))
         data_writer = csv.writer(filename, delimiter=",")
         data_writer.writerow(data_list)
+
         return None
 
     def delete_contact(self, filename):
