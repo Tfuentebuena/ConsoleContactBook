@@ -30,7 +30,7 @@ def operations(book, choices, file_name="contacts.csv"):
         elif x == 2:
             book.update_contact(file_name)
             choices.append(x)
-        elif x == 3 :
+        elif x == 3:
             book.delete_contact(file_name)
             choices.append(x)
         elif x == 4:
@@ -41,9 +41,6 @@ def operations(book, choices, file_name="contacts.csv"):
             print("Closing...")
             exit()
         dec = input("Another operation? (Y/N): ")
-
-
-
 
 
 def main():
