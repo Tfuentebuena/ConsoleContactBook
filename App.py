@@ -1,4 +1,6 @@
-import Objects
+import os
+import csv_worker
+import sql_up
 from sys import exit
 from time import sleep
 
@@ -10,9 +12,9 @@ def is_csv(file_name):
 
 
 def operations(book, choices, file_name="contacts.csv"):
-    dec = "y"
+    dec = 'y'
 
-    while dec == "y" or dec == "Y":
+    while dec == 'y' or dec == 'Y':
         print(
             "What do you want to do?:\n(1) Add contact.\n(2) Update contact.\n"
             "(3) Delete contact.\n(4) Search contact.\n(5) Exit.\n"
@@ -24,7 +26,7 @@ def operations(book, choices, file_name="contacts.csv"):
             sleep(1)
             continue
         if x == 1:
-            data_csv = open(file_name, "a")
+            data_csv = open(file_name, 'a')
             book.add_contact(data_csv)
             choices.append(x)
         elif x == 2:
@@ -34,7 +36,7 @@ def operations(book, choices, file_name="contacts.csv"):
             book.delete_contact(file_name)
             choices.append(x)
         elif x == 4:
-            data_csv = open(file_name, "r")
+            data_csv = open(file_name, 'r')
             book.search_contact(data_csv)
             choices.append(x)
         elif x == 5:
@@ -49,19 +51,31 @@ def main():
     custom_file = input()
     choices = []
 
-    if custom_file == "y" or custom_file == "Y":
+    if custom_file == 'y' or custom_file == 'Y':
         customfile_name = input("Enter the name of the csv file: ")
         file_name = is_csv(customfile_name)
-        book = Objects.ContactBook(file_name)
+        book = csv_worker.ContactBook(file_name)
         operations(book, choices, file_name)
         if 1 in choices or 2 in choices:
-            Objects.order_data(file_name)
+            csv_worker.order_data(file_name)
+        if os.path.isfile("sql_DB.db"):
+            os.remove("sql_DB.db")
+            sql_up.uploader(file_name)
+        else:
+            sql_up.uploader(file_name)
+
     else:
-        book = Objects.ContactBook()
+        book = csv_worker.ContactBook()
         operations(book, choices)
-        Objects.order_data()
+        csv_worker.order_data()
         if 1 in choices or 2 in choices:
-            Objects.order_data()
+            csv_worker.order_data()
+
+        if os.path.isfile("sql_DB.db"):
+            os.remove("sql_DB.db")
+            sql_up.uploader()
+        else:
+            sql_up.uploader()
 
 
 if __name__ == "__main__":

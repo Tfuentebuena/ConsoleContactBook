@@ -5,14 +5,18 @@ Student: tfuentebuena@est.frba.utn.edu.ar
 Personal: tobiasfuentebuenaguardon@gmail.com
 
 Simple console-based contact book which works with CSV files.  
-SQLite may be added in the future.  
-The script dumps in a CSV the name, address, phone number and e-mail of every person you want. You can also update or delete any entry.  
-Now the script is able to work with custom csv files if they have the default format of columns. The default one is still 'contacts.csv'. 
-Added the function to order the data, only when needed, alphabetically. 
-Now you can update contacts partially, if any cell in the contact you are updating is right, just do not write anything in it when asked. It will simply keep the original one.
+Saves in a CSV and SQLite database the name, address, phone number and e-mail of every person you want.
 
-*I DO NOT RECOMMEND USING IT AS IT IS NOW*, but if you still want to try, consider the next points:
+*Functions* 
+- Add contacts. Be sure to not add two contacts with identical names. 
+- Delete contacts. 
+- Search contacts. This function will show you all the data of the contact, but be sure you entered the full name of the contact. There is no partial search.
+- Update contacts. If you don't enter a cell (phone number, for example) the program will keep the original one.
+The program works with both custom and default files ("contacts.csv" as default). Although, the SQLite database won't be different, it will be overwritten.
+The contacts are alphabetically ordered when dumped. 
 
--Be sure to not add two or more contacts with the same name because doing will result in the first ones being ignored during search and all of them deleted at once with the delete command.
+It may be the one of the last versions of this script with date August 1st, 2020. There are only a few things to clean or improve, but most probably no more big functions will be added. The only thing to be added could be a GUI. 
 
+
+**NOTE**: As I said, do not add contacts with identical names because they will be added but you won't be able to remove just one of them, it will be deleted all of them. 
 
